@@ -6,9 +6,10 @@ function resolve(url) {
 }
 
 module.exports = {
-  entry: {
-    main: resolve('src/main.js')
-  },
+  // entry: {
+  //   main: resolve('src/main.js')
+  // },
+  entry: [resolve('src/main.js'), resolve('src/css-entry.js')],
 
   output: {
     path: resolve('dist'),
