@@ -1,1 +1,0 @@
-require('@/css/test1.less');

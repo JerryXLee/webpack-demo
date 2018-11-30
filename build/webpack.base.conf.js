@@ -9,11 +9,22 @@ module.exports = {
   // entry: {
   //   main: resolve('src/main.js')
   // },
-  entry: [resolve('src/main.js'), resolve('src/css-entry.js')],
+  entry: {
+    a: resolve('src/js/a.js'),
+    b: resolve('src/js/b.js')
+  },
 
   output: {
     path: resolve('dist'),
     filename: path.posix.join('assets', 'js/[name].js')
+  },
+
+  devServer: {
+    contentBase: path.resolve(__dirname, "dist"),
+    host: "localhost",  // win8 下自启浏览器可能是因为没设置为localhost
+    port: "8090",
+    open: true, // 开启浏览器
+    hot: true   // 开启热更新
   },
 
   module: {
@@ -52,6 +63,9 @@ module.exports = {
         limit: 10000,
         name: path.posix.join('assets', 'fonts/[name].[hash:7].[ext]')
       }
+    }, {
+      test: /\.html$/,
+      loader: 'html-withimg-loader'
     }]
   },
 
